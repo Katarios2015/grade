@@ -9,7 +9,7 @@ import { ReactComponent as IconScifi } from 'assets/img/icon-scifi.svg';
 import * as S from './quests-catalog.styled';
 //import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { QuestsList } from '../quests-list/quests-list';
 
 import {
@@ -30,16 +30,25 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-
 const QuestsCatalog = (props) => {
   const { cards, onLoadData, isDataLoaded } = props;
-console.log(isDataLoaded);
 
   useEffect(() => {
     if (!isDataLoaded) {
       onLoadData();
     }
   });
+
+  let iconsAndFilters = new Map ([
+    [IconAllQuests, "Все квесты"],
+    [IconAdventures, "Приключения"],
+    [IconHorrors, "Ужасы"],
+    [IconMystic, "Мистика"],
+    [IconDetective, "Детектив"],
+    [IconScifi, "Sci-fi"],
+  ]);
+
+  console.log(iconsAndFilters);
 
   return (
     <>
@@ -95,6 +104,5 @@ console.log(isDataLoaded);
   offers: PropTypes.arrayOf(object).isRequired,
   isDataLoaded: PropTypes.bool.isRequired,
 };*/
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestsCatalog);
