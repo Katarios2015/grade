@@ -1,8 +1,8 @@
-import {ActionType} from "../../actions";
+import { ActionType } from '../../actions';
 
 const initialState = {
   card: {},
-  isItemDataLoaded: false,
+  isCardDataLoaded: false,
 };
 
 const CardData = (state = initialState, action) => {
@@ -20,4 +20,4 @@ const CardData = (state = initialState, action) => {
   }
 };
 
-export {CardData};
+export { CardData };

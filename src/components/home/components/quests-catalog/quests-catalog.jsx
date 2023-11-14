@@ -33,7 +33,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 const QuestsCatalog = (props) => {
   const { cards, onLoadData, isDataLoaded } = props;
-console.log(isDataLoaded);
 
   useEffect(() => {
     if (!isDataLoaded) {

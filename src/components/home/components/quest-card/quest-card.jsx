@@ -2,14 +2,14 @@ import * as S from '../quests-catalog/quests-catalog.styled';
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 
-import { getTranslateLevel } from '../common/utils';
+import { getTranslateLevel } from '../utils/utils';
 
 const CardQuest = (props) => {
   const { item } = props;
   const { id, previewImg, title, peopleCount, level } = item;
   return (
     <S.QuestItem>
-      <S.QuestItemLink to={`/quest/${id}`}>
+      <S.QuestItemLink to={`detailed-quest/${id}`}>
         <S.Quest>
           <S.QuestImage
             src={previewImg}
