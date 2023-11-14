@@ -7,12 +7,16 @@ import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './detailed-quest.styled';
 import { BookingModal } from './components/components';
-
+import {
+  getTranslateLevel,
+  getTranslateQuestType,
+  getStringByArray
+} from '../home/components/utils/utils';
 import { useParams } from 'react-router-dom';
 
 import {
   getCard,
-  getCardDataLoaded,
+  //getCardDataLoaded,
 } from '../../store/reducers/quest-card-data/selectors';
 
 import { getUrlId } from '../../store/reducers/url-id/selectors';
@@ -21,7 +25,7 @@ import { getCardUrlId } from '../../store/actions';
 
 const mapStateToProps = (state) => ({
   card: getCard(state),
-  isCardDataLoaded: getCardDataLoaded(state),
+  //isCardDataLoaded: getCardDataLoaded(state),
   urlId: getUrlId(state),
 });
 
@@ -35,17 +39,11 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const DetailedQuest = (props) => {
-  const { card, isCardDataLoaded, onLoadCardData, cardId } = props;
+  const { card, onLoadCardData, cardId } = props;
 
-  const {
-    title,
-    description,
-    coverImg,
-    level,
-    peopleCount,
-    duration,
-    type,
-  } = card;
+  const { title, description, coverImg, level, peopleCount, duration, type } =
+    card;
+    //console.log(getStringByArray(peopleCount));
 
   const urlParams = useParams();
   const urlId = Number(urlParams.id);
@@ -55,10 +53,8 @@ const DetailedQuest = (props) => {
   }, []);
 
   useEffect(() => {
-    if (!isCardDataLoaded) {
-      onLoadCardData();
-    }
-  }, [isCardDataLoaded]);
+    onLoadCardData();
+  }, [urlId]);
 
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
 
@@ -69,16 +65,11 @@ const DetailedQuest = (props) => {
   return (
     <MainLayout>
       <S.Main>
-        <S.PageImage
-        src={coverImg}
-        alt={title}
-        width="1366"
-        height="768"
-        />
+        <S.PageImage src={coverImg} alt={title} width="1366" height="768" />
         <S.PageContentWrapper>
           <S.PageHeading>
             <S.PageTitle>{title}</S.PageTitle>
-            <S.PageSubtitle>{type}</S.PageSubtitle>
+            <S.PageSubtitle>{getTranslateQuestType(type)}</S.PageSubtitle>
           </S.PageHeading>
 
           <S.PageDescription>
@@ -93,7 +84,7 @@ const DetailedQuest = (props) => {
               </S.FeaturesItem>
               <S.FeaturesItem>
                 <IconPuzzle width="24" height="24" />
-                <S.FeatureTitle>{level}</S.FeatureTitle>
+                <S.FeatureTitle>{getTranslateLevel(level)}</S.FeatureTitle>
               </S.FeaturesItem>
             </S.Features>
 

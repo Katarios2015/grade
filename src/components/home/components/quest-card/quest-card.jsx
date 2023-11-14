@@ -22,7 +22,7 @@ const CardQuest = (props) => {
             <S.QuestFeatures>
               <S.QuestFeatureItem>
                 <IconPerson />
-                {`${peopleCount[0]} - ${peopleCount[1]}`} чел
+                {peopleCount.join('-')} чел
               </S.QuestFeatureItem>
               <S.QuestFeatureItem>
                 <IconPuzzle />
