@@ -1,4 +1,4 @@
-import {getFiltredQuests} from '../components/home/components/utils/utils';
+import { getFiltredQuests } from '../components/home/components/utils/utils';
 
 const ActionType = {
   LOAD_QUESTS: `home/loadQuests`,
@@ -6,6 +6,7 @@ const ActionType = {
   CARD_URL_ID: `quest/getCardUrlId`,
   FILTER_TYPE: `home/addFilter`,
   FILTRED_CARDS: `home/filtering`,
+  CHANGE_TOGGLE: `quest/cangeToggleModal`,
 };
 
 const loadQuests = (cards) => ({
@@ -33,11 +34,17 @@ const filtering = (filterName, cards) => ({
   payload: getFiltredQuests(filterName, cards),
 });
 
+const changeToggleModal = (toggle) => ({
+  type: ActionType.CHANGE_TOGGLE,
+  payload: toggle,
+});
+
 export {
   loadQuests,
   loadQuestCard,
   getCardUrlId,
   addFilter,
   filtering,
+  changeToggleModal,
   ActionType,
 };
