@@ -4,6 +4,7 @@ import { QuestsData } from './reducers/quests-data/quests-data';
 import { CardUrlId } from './reducers/url-id/url-id';
 import { filter } from './reducers/filter/filter';
 import { cardFiltered } from './reducers/filtred-quests/filtred-quests';
+import { modalToggle } from './reducers/modal/modal';
 
 const NameSpace = {
   CARDS: `CARDS`,
@@ -11,6 +12,7 @@ const NameSpace = {
   URL_ID: `URL_ID`,
   FILTER: `FILTER`,
   FILTERED_CARDS: `FILTERED_CARDS`,
+  TOGGLE_MODAL: `TOGGLE_MODAL`,
 };
 
 export { NameSpace };
@@ -21,4 +23,5 @@ export default combineReducers({
   [NameSpace.URL_ID]: CardUrlId,
   [NameSpace.FILTER]: filter,
   [NameSpace.FILTERED_CARDS]: cardFiltered,
+  [NameSpace.TOGGLE_MODAL]: modalToggle,
 });

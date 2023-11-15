@@ -1,4 +1,4 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { MainLayout } from 'components/common/common';
@@ -10,23 +10,21 @@ import { BookingModal } from './components/components';
 import {
   getTranslateLevel,
   getTranslateQuestType,
-  getStringByArray
 } from '../home/components/utils/utils';
 import { useParams } from 'react-router-dom';
 
-import {
-  getCard,
-  //getCardDataLoaded,
-} from '../../store/reducers/quest-card-data/selectors';
+import { getCard } from '../../store/reducers/quest-card-data/selectors';
 
 import { getUrlId } from '../../store/reducers/url-id/selectors';
 import { fetchQuest } from '../../store/actions-api';
 import { getCardUrlId } from '../../store/actions';
+import { getisBookingModalOpened } from '../../store/reducers/modal/selectors';
+import { changeToggleModal } from '../../store/actions';
 
 const mapStateToProps = (state) => ({
   card: getCard(state),
-  //isCardDataLoaded: getCardDataLoaded(state),
   urlId: getUrlId(state),
+  isBookingModalOpened: getisBookingModalOpened(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -36,14 +34,22 @@ const mapDispatchToProps = (dispatch) => ({
   cardId(urlId) {
     dispatch(getCardUrlId(urlId));
   },
+  onChangeToggleModal(isBookingModalOpened) {
+    dispatch(changeToggleModal(isBookingModalOpened));
+  },
 });
 
 const DetailedQuest = (props) => {
-  const { card, onLoadCardData, cardId } = props;
+  const {
+    card,
+    cardId,
+    isBookingModalOpened,
+    onLoadCardData,
+    onChangeToggleModal,
+  } = props;
 
   const { title, description, coverImg, level, peopleCount, duration, type } =
     card;
-    //console.log(getStringByArray(peopleCount));
 
   const urlParams = useParams();
   const urlId = Number(urlParams.id);
@@ -56,11 +62,11 @@ const DetailedQuest = (props) => {
     onLoadCardData();
   }, [urlId]);
 
-  const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
+  /*const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
 
   const onBookingBtnClick = () => {
     setIsBookingModalOpened(true);
-  };
+  };*/
 
   return (
     <MainLayout>
@@ -90,7 +96,11 @@ const DetailedQuest = (props) => {
 
             <S.QuestDescription>{description}</S.QuestDescription>
 
-            <S.QuestBookingBtn onClick={onBookingBtnClick}>
+            <S.QuestBookingBtn
+              onClick={() => {
+                onChangeToggleModal(true);
+              }}
+            >
               Забронировать
             </S.QuestBookingBtn>
           </S.PageDescription>
