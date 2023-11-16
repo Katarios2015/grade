@@ -48,9 +48,16 @@ const DetailedQuest = (props) => {
     onChangeToggleModal,
   } = props;
 
-  const { title, description, coverImg, level, peopleCount, duration, type } =
-    card;
-
+  const {
+    title,
+    description,
+    coverImg,
+    type,
+    level,
+    peopleCount = [0],
+    duration,
+  } = card;
+  console.log(typeof peopleCount);
   const urlParams = useParams();
   const urlId = Number(urlParams.id);
 
@@ -71,7 +78,12 @@ const DetailedQuest = (props) => {
   return (
     <MainLayout>
       <S.Main>
-        <S.PageImage src={coverImg} alt={title} width="1366" height="768" />
+        <S.PageImage
+          src={`../../../${coverImg}`}
+          alt={title}
+          width="1366"
+          height="768"
+        />
         <S.PageContentWrapper>
           <S.PageHeading>
             <S.PageTitle>{title}</S.PageTitle>
@@ -86,7 +98,7 @@ const DetailedQuest = (props) => {
               </S.FeaturesItem>
               <S.FeaturesItem>
                 <IconPerson width="19" height="24" />
-                <S.FeatureTitle>{peopleCount} чел</S.FeatureTitle>
+                <S.FeatureTitle>{peopleCount.join('-')} чел</S.FeatureTitle>
               </S.FeaturesItem>
               <S.FeaturesItem>
                 <IconPuzzle width="24" height="24" />

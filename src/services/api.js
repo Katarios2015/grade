@@ -1,10 +1,9 @@
-import axios from "axios";
+import axios from 'axios';
 
 const URL = `http://localhost:3001/`;
 const REQUEST_TIMEOUT = 5000;
 
-
- const createAPI = () => {
+const createAPI = () => {
   const api = axios.create({
     baseURL: URL,
     timeout: REQUEST_TIMEOUT,
@@ -22,4 +21,4 @@ const REQUEST_TIMEOUT = 5000;
   return api;
 };
 
-export {createAPI};
+export { createAPI };
