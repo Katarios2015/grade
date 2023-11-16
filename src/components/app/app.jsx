@@ -5,11 +5,10 @@ import {
   BrowserRouter as Router,
 } from 'components/common/common';
 import DetailedQuest from 'components/detailed-quest/detailed-quest';
-import Contacts from 'components/contacts/contacts';
+import Contacts from 'components/contacts/components/contacts';
 import Home from 'components/home/home';
 import { appTheme } from './common';
 import * as S from './app.styled';
-
 
 const App = () => (
   <ThemeProvider theme={appTheme}>
