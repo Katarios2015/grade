@@ -6,7 +6,7 @@ const initialState = {
 
 const modalToggle = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.CHANGE_TOGGLE: {
+    case ActionType.ChangeToggle: {
       return {
         ...state,
         isBookingModalOpened: action.payload,

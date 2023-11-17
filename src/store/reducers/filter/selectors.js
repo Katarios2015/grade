@@ -1,5 +1,5 @@
 import { NameSpace } from '../../root-reducer';
 
-const getFilter = (state) => state[NameSpace.FILTER].filterType;
+const getFilter = (state) => state[NameSpace.Filter].filterType;
 
 export { getFilter };

@@ -1,42 +1,54 @@
 import { getFiltredQuests } from '../components/home/components/utils/utils';
 
 const ActionType = {
-  LOAD_QUESTS: `home/loadQuests`,
-  LOAD_QUEST_CARD: `quest/loadQuestcard`,
-  CARD_URL_ID: `quest/getCardUrlId`,
-  FILTER_TYPE: `home/addFilter`,
-  FILTRED_CARDS: `home/filtering`,
-  CHANGE_TOGGLE: `quest/cangeToggleModal`,
+  LoadQuests: `home/loadQuests`,
+  LoadQuestCard: `quest/loadQuestcard`,
+  CardUrlId: `quest/getCardUrlId`,
+  FilterType: `home/addFilter`,
+  FiltredCards: `home/filtering`,
+  ChangeToggle: `quest/cangeToggleModal`,
+  ActiveLink: `header/addActiveLink`,
+  RedirectToRoute: `page/redirectToRoute`,
 };
 
 const loadQuests = (cards) => ({
-  type: ActionType.LOAD_QUESTS,
+  type: ActionType.LoadQuests,
   payload: cards,
 });
 
 const loadQuestCard = (card) => ({
-  type: ActionType.LOAD_QUEST_CARD,
+  type: ActionType.LoadQuestCard,
   payload: card,
 });
 
 const getCardUrlId = (urlId) => ({
-  type: ActionType.CARD_URL_ID,
+  type: ActionType.CardUrlId,
   payload: urlId,
 });
 
 const addFilter = (filterType) => ({
-  type: ActionType.FILTER_TYPE,
+  type: ActionType.FilterType,
   payload: filterType,
 });
 
 const filtering = (filterName, cards) => ({
-  type: ActionType.FILTRED_CARDS,
+  type: ActionType.FiltredCards,
   payload: getFiltredQuests(filterName, cards),
 });
 
 const changeToggleModal = (toggle) => ({
-  type: ActionType.CHANGE_TOGGLE,
+  type: ActionType.ChangeToggle,
   payload: toggle,
+});
+
+const addActiveLink = (title) => ({
+  type: ActionType.ActiveLink,
+  payload: title,
+});
+
+const redirectToRoute = (url) => ({
+  type: ActionType.RedirectToRoute,
+  payload: url,
 });
 
 export {
@@ -46,5 +58,7 @@ export {
   addFilter,
   filtering,
   changeToggleModal,
+  addActiveLink,
+  redirectToRoute,
   ActionType,
 };

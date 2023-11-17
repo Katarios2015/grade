@@ -1,28 +1,24 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
-
+import {ADDRESS_COORDS} from '../utils/consts';
 
 const ContactsMap = () => {
+
   const defaultState = {
-    center: [59.968142, 30.316425],
+    center: ADDRESS_COORDS,
     zoom: 18,
   };
 
   return (
     <YMaps>
-      <Map
-      defaultState={defaultState}
-      width={649}
-      height={336}
-      >
-        <Placemark geometry={[59.968142, 30.316425]}
-        options={{inColor:'islands#dotIcon'}} />
+      <Map defaultState={defaultState} width={649} height={336}>
+        <Placemark
+          geometry={ADDRESS_COORDS}
+        />
       </Map>
     </YMaps>
   );
 };
 
-
-export {ContactsMap};
-
+export { ContactsMap };

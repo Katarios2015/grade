@@ -1,0 +1,3 @@
+const ADDRESS_COORDS = [59.968142, 30.316425];
+
+export { ADDRESS_COORDS };

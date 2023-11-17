@@ -1,15 +1,15 @@
 import { ActionType } from '../../actions';
 
 const initialState = {
-  filteredCards: [],
+  title: `Квесты`,
 };
 
-const cardFiltered = (state = initialState, action) => {
+const activeLink = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.FiltredCards: {
+    case ActionType.ActiveLink: {
       return {
         ...state,
-        filteredCards: action.payload,
+        title: action.payload,
       };
     }
     default: {
@@ -18,4 +18,4 @@ const cardFiltered = (state = initialState, action) => {
   }
 };
 
-export { cardFiltered };
+export { activeLink };

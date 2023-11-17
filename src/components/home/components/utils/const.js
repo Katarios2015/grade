@@ -1,7 +1,7 @@
 const Level = {
-  HARD: `hard`,
-  MEDIUM: `medium`,
-  EASY: `easy`,
+  Hard: `hard`,
+  Medium: `medium`,
+  Easy: `easy`,
 };
 
 const Type = {

@@ -1,6 +1,6 @@
 import { NameSpace } from '../../root-reducer';
 
 const getisBookingModalOpened = (state) =>
-  state[NameSpace.TOGGLE_MODAL].isBookingModalOpened;
+  state[NameSpace.ToggleModal].isBookingModalOpened;
 
 export { getisBookingModalOpened };
