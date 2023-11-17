@@ -24,7 +24,7 @@ const BookingModal = (props) => {
 
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
-  //const pepopleCountRef = useRef(null);
+
   const [number, setNumber] = useState('');
 
   let isLegalRef = useRef(false);

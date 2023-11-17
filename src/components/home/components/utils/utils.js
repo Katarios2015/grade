@@ -2,16 +2,16 @@ import { Level, Type, ALL_QUESTS } from './const';
 
 const getTranslateLevel = (level) => {
   switch (level) {
-    case Level.HARD: {
+    case Level.Hard: {
       const hard = 'сложный';
       return hard;
     }
 
-    case Level.MEDIUM: {
+    case Level.Medium: {
       const medium = 'средний';
       return medium;
     }
-    case Level.EASY: {
+    case Level.Easy: {
       const easy = 'простой';
       return easy;
     }

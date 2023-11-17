@@ -5,9 +5,9 @@ const initialState = {
   isDataLoaded: false,
 };
 
-const QuestsData = (state = initialState, action) => {
+const questsData = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.LOAD_QUESTS: {
+    case ActionType.LoadQuests: {
       return {
         ...state,
         cards: action.payload,
@@ -20,4 +20,4 @@ const QuestsData = (state = initialState, action) => {
   }
 };
 
-export {QuestsData};
+export {questsData};

@@ -1,4 +1,4 @@
-//import { useState } from 'react';
+import React from 'react';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { MainLayout } from 'components/common/common';
@@ -57,23 +57,16 @@ const DetailedQuest = (props) => {
     peopleCount = [0],
     duration,
   } = card;
-  console.log(typeof peopleCount);
   const urlParams = useParams();
   const urlId = Number(urlParams.id);
 
   useEffect(() => {
     cardId(urlId);
-  }, []);
+  }, [cardId, urlId]);
 
   useEffect(() => {
     onLoadCardData();
-  }, [urlId]);
-
-  /*const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
-
-  const onBookingBtnClick = () => {
-    setIsBookingModalOpened(true);
-  };*/
+  }, [onLoadCardData, urlId]);
 
   return (
     <MainLayout>

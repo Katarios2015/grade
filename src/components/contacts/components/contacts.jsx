@@ -1,10 +1,7 @@
 import { MainLayout, PageTitle, PageSubtext } from 'components/common/common';
-import contactsMap from 'assets/img/contacts-map.jpg';
 import * as S from '../contacts.styled';
 
-import {ContactsMap} from '../components/map';
-
-// import { YMaps, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
+import { ContactsMap } from '../components/map';
 
 const Contacts = () => (
   <MainLayout>
@@ -45,7 +42,7 @@ const Contacts = () => (
           </S.ContactsList>
 
           <S.ContactsMap>
-            <ContactsMap/>
+            <ContactsMap />
           </S.ContactsMap>
         </S.Contacts>
       </S.ContentWrapper>

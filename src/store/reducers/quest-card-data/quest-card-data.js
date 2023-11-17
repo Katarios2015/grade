@@ -5,9 +5,9 @@ const initialState = {
   isCardDataLoaded: false,
 };
 
-const CardData = (state = initialState, action) => {
+const cardData = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.LOAD_QUEST_CARD: {
+    case ActionType.LoadQuestCard: {
       return {
         ...state,
         card: action.payload,
@@ -20,4 +20,4 @@ const CardData = (state = initialState, action) => {
   }
 };
 
-export { CardData };
+export { cardData };

@@ -14,13 +14,7 @@ const api = createAPI();
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(
-    // Начнём с конфигурирования хранилища. Подключим `redux-thunk` в список
-    // middlewares. Аргументом для `thunk` передадим сконфигурированный
-    // экземпляр `axios`, чтобы была возможность обратиться к нему из действия
-    applyMiddleware(thunk.withExtraArgument(api)),
-    //applyMiddleware(redirect),
-  ),
+  composeWithDevTools(applyMiddleware(thunk.withExtraArgument(api))),
 );
 
 render(

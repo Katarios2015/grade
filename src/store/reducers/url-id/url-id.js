@@ -4,9 +4,9 @@ const initialState = {
   urlId: '',
 };
 
-const CardUrlId = (state = initialState, action) => {
+const cardUrlId = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.CARD_URL_ID: {
+    case ActionType.CardUrlId: {
       return {
         ...state,
         urlId: action.payload,
@@ -18,4 +18,4 @@ const CardUrlId = (state = initialState, action) => {
   }
 };
 
-export { CardUrlId };
+export { cardUrlId };

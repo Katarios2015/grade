@@ -1,27 +1,30 @@
 import { combineReducers } from 'redux';
-import { CardData } from './reducers/quest-card-data/quest-card-data';
-import { QuestsData } from './reducers/quests-data/quests-data';
-import { CardUrlId } from './reducers/url-id/url-id';
+import { cardData } from './reducers/quest-card-data/quest-card-data';
+import { questsData } from './reducers/quests-data/quests-data';
+import { cardUrlId } from './reducers/url-id/url-id';
 import { filter } from './reducers/filter/filter';
 import { cardFiltered } from './reducers/filtred-quests/filtred-quests';
 import { modalToggle } from './reducers/modal/modal';
+import { activeLink } from './reducers/active-link/active-link';
 
-const NameSpace = {
-  CARDS: `CARDS`,
-  QUEST_CARD: `CARD`,
-  URL_ID: `URL_ID`,
-  FILTER: `FILTER`,
-  FILTERED_CARDS: `FILTERED_CARDS`,
-  TOGGLE_MODAL: `TOGGLE_MODAL`,
+ const NameSpace = {
+  Cards: `Cards`,
+  QuestCard: `CARD`,
+  UrlId: `URL_ID`,
+  Filter: `FILTER`,
+  FiltredCards: `FILTERED_CARDS`,
+  ToggleModal: `TOGGLE_MODAL`,
+  ActiveLink: `ACTIVE_LINK`,
 };
 
 export { NameSpace };
 
 export default combineReducers({
-  [NameSpace.CARDS]: QuestsData,
-  [NameSpace.QUEST_CARD]: CardData,
-  [NameSpace.URL_ID]: CardUrlId,
-  [NameSpace.FILTER]: filter,
-  [NameSpace.FILTERED_CARDS]: cardFiltered,
-  [NameSpace.TOGGLE_MODAL]: modalToggle,
+  [NameSpace.Cards]: questsData,
+  [NameSpace.QuestCard]: cardData,
+  [NameSpace.UrlId]: cardUrlId,
+  [NameSpace.Filter]: filter,
+  [NameSpace.FiltredCards]: cardFiltered,
+  [NameSpace.ToggleModal]: modalToggle,
+  [NameSpace.ActiveLink]: activeLink,
 });

@@ -5,8 +5,7 @@ import { ReactComponent as IconMystic } from 'assets/img/icon-mystic.svg';
 import { ReactComponent as IconDetective } from 'assets/img/icon-detective.svg';
 import { ReactComponent as IconScifi } from 'assets/img/icon-scifi.svg';
 import * as S from './quests-catalog.styled';
-//import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import { QuestsList } from '../quests-list/quests-list';
 import { nanoid } from 'nanoid';
@@ -62,9 +61,9 @@ const QuestsCatalog = (props) => {
 
   useEffect(() => {
     onFilterCards(filterType, cards);
-  }, [filterType, cards]);
+  }, [filterType, cards, onFilterCards]);
 
-  const iconsAndFiltersMap = new Map([
+  const IconsAndFiltersMap = new Map([
     ['Все квесты', <IconAllQuests />],
     ['Приключения', <IconAdventures />],
     ['Ужасы', <IconHorrors />],
@@ -86,7 +85,7 @@ const QuestsCatalog = (props) => {
                     onFilter(filterName);
                   }}
                 >
-                  {iconsAndFiltersMap.get(filterName)}
+                  {IconsAndFiltersMap.get(filterName)}
                   <S.TabTitle>{filterName}</S.TabTitle>
                 </S.TabBtn>
               ) : (
@@ -95,7 +94,7 @@ const QuestsCatalog = (props) => {
                     onFilter(filterName);
                   }}
                 >
-                  {iconsAndFiltersMap.get(filterName)}
+                  {IconsAndFiltersMap.get(filterName)}
                   <S.TabTitle>{filterName}</S.TabTitle>
                 </S.TabBtn>
               )}
@@ -108,4 +107,7 @@ const QuestsCatalog = (props) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuestsCatalog);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(memo(QuestsCatalog));

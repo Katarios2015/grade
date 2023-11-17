@@ -1,4 +1,4 @@
-import {ActionType} from "../../actions";
+import { ActionType } from '../../actions';
 
 const initialState = {
   filterType: `Все квесты`,
@@ -6,7 +6,7 @@ const initialState = {
 
 const filter = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.FILTER_TYPE: {
+    case ActionType.FilterType: {
       return {
         ...state,
         filterType: action.payload,
@@ -18,4 +18,4 @@ const filter = (state = initialState, action) => {
   }
 };
 
-export {filter};
+export { filter };
